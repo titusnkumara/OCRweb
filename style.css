@@ -1,0 +1,47 @@
+[canvas=container],
+[off-canvas] {
+    padding: 10px 20px;
+}
+
+[class*=js-] {
+    cursor: pointer;
+}
+
+.d:hover {
+	fill: darkturquoise; 
+}
+.a:hover {
+	fill: darkturquoise; 
+}
+
+
+.sidebardivs{
+	background-color: rgba(0,0,35,4);
+}
+
+#svgpart {
+    position:relative; width:85vw;
+}
+
+svg {
+    position:absolute; 
+}
+
+p {
+	color: white;
+    font-family: serif;
+    font: menu;
+    font-size: inherit;
+}
+h {
+	font-family: serif;
+    font: menu;
+}
+
+.vex-overlay{
+	height: 53vh;
+}
+
+.vex-dialog-button-primary{
+	visibility: hidden;
+}
