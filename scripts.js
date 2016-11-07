@@ -2,6 +2,13 @@
     // Create a new instance of Slidebars
     var controller = new slidebars();
 
+    // add scroll event
+    // function stopSidebar() {
+    //     console.log("You scrolled in div.");
+
+    // }
+    // document.getElementsByClassName('container')[0].addEventListener("scroll", stopSidebar);
+
     // Events
     $( controller.events ).on( 'init', function () {
         console.log( 'Init event' );
@@ -66,7 +73,7 @@
         $(".vex-overlay").css({
                 'height': ($("body").height()-$('#featurediv').height()-10 + 'px')
             });
-  
+        $(".vex-dialog-message").html($('#featureSelection').html());
         
 
     } );
@@ -91,7 +98,107 @@
     } );
 
 
-	
+    // open language detection sidebar
+    $( '#languagedetectBox' ).on( 'click', function ( event ) {
+        event.stopPropagation();
+
+        // open a specifi side bar
+        controller.open( 'slidebar-language' );
+
+
+        vex.dialog.alert({
+                message: '',
+                className: 'vex-theme-default'
+            })
+        // setting the overlay size as total height - specific sidebar height
+        $(".vex-overlay").css({
+                'height': ($("body").height()-$('#languagedetectdiv').height()-10 + 'px')
+            });
+
+        // read non visible html part and set the content on description
+        $(".vex-dialog-message").html($('#languagedetect').html());
+  
+        
+
+    } );
+
+
+    // open number detection sidebar
+    $( '#numberdetectImg' ).on( 'click', function ( event ) {
+        event.stopPropagation();
+
+        // open a specifi side bar
+        controller.open( 'slidebar-numbers' );
+
+
+        vex.dialog.alert({
+                message: '',
+                className: 'vex-theme-default'
+            })
+        // setting the overlay size as total height - specific sidebar height
+        $(".vex-overlay").css({
+                'height': ($("body").height()-$('#numberdetectdiv').height()-10 + 'px')
+            });
+
+        // read non visible html part and set the content on description
+        $(".vex-dialog-message").html($('#numberdetect').html());
+  
+        
+
+    } );
+
+    // open font recognition sidebar
+    $( '#fontrecogImg' ).on( 'click', function ( event ) {
+        event.stopPropagation();
+
+        // open a specifi side bar
+        controller.open( 'slidebar-fontrec' );
+
+
+        vex.dialog.alert({
+                message: '',
+                className: 'vex-theme-default'
+            })
+        // setting the overlay size as total height - specific sidebar height
+        $(".vex-overlay").css({
+                'height': ($("body").height()-$('#fontrecognitiondiv').height()-10 + 'px')
+            });
+
+        // read non visible html part and set the content on description
+        $(".vex-dialog-message").html($('#fontRecognition').html());
+  
+        
+
+    } );
+
+
+    // open pre-processing info box
+    $( '#preprocessingImg' ).on( 'click', function ( event ) {
+        event.stopPropagation();
+
+        vex.dialog.alert({
+                message: '',
+                className: 'vex-theme-default'
+            })
+        // setting the overlay size as total height - specific sidebar height
+        $(".vex-overlay").css({
+                'height': ($("body").height() + 'px')
+            });
+
+        // read non visible html part and set the content on description
+        $(".vex-dialog-message").html($('#preprocessing').html());
+  
+        
+
+    } );
+
+
+    // on any scroll even, I am closing my sidebars
+	$('.container').scroll(function(event){
+        console.log("scrolling");
+        event.stopPropagation();
+        controller.close();
+    });
 	
 
     // Close any
